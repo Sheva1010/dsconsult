@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <rect width="400" height="400" fill="#0d0d0d"/>
+
+  <radialGradient id="g1" cx="80%" cy="15%" r="50%">
+    <stop offset="0%" stop-color="#5B9BFF" stop-opacity="0.18"/>
+    <stop offset="100%" stop-color="#5B9BFF" stop-opacity="0"/>
+  </radialGradient>
+  <rect width="400" height="400" fill="url(#g1)"/>
+
+  <radialGradient id="g2" cx="15%" cy="85%" r="40%">
+    <stop offset="0%" stop-color="#5B9BFF" stop-opacity="0.1"/>
+    <stop offset="100%" stop-color="#5B9BFF" stop-opacity="0"/>
+  </radialGradient>
+  <rect width="400" height="400" fill="url(#g2)"/>
+
+  <!-- DS -->
+  <text x="200" y="195" font-family="Verdana,Geneva,sans-serif" font-size="110" font-weight="900" fill="#ffffff" text-anchor="middle" letter-spacing="-3">DS</text>
+
+  <!-- Divider line -->
+  <rect x="140" y="210" width="120" height="2" fill="#5B9BFF" opacity="0.5" rx="1"/>
+
+  <!-- CONSULT -->
+  <text x="200" y="258" font-family="Verdana,Geneva,sans-serif" font-size="38" font-weight="900" fill="#5B9BFF" text-anchor="middle" letter-spacing="4">CONSULT</text>
+</svg>

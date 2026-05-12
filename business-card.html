@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>DS CONSULT — Business Card</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #141414;
+    font-family: Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px 20px 80px;
+    gap: 48px;
+  }
+
+  .label {
+    color: #333;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+
+  .card {
+    width: 680px;
+    height: 432px;
+    border-radius: 14px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 28px 70px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.05);
+  }
+
+  /* ПЕРЕДНЯЯ */
+  .front {
+    background: #0d0d0d;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .front-accent {
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 260px; height: 260px;
+    background: radial-gradient(circle, rgba(91,155,255,0.12) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .front-accent-2 {
+    position: absolute;
+    bottom: -60px; left: -60px;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(91,155,255,0.07) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .front-logo {
+    font-size: 48px; font-weight: 900; color: #fff;
+    letter-spacing: -2px; line-height: 1; z-index: 1;
+  }
+  .front-logo span { color: #5B9BFF; }
+  .front-tagline {
+    font-size: 10.5px; letter-spacing: 3.5px; color: #555;
+    text-transform: uppercase; margin-top: 14px; z-index: 1;
+  }
+  .front-line {
+    width: 40px; height: 2px; background: #5B9BFF;
+    margin-top: 28px; opacity: 0.6; z-index: 1;
+  }
+
+  /* ЗАДНЯЯ */
+  .back {
+    background: #0d0d0d;
+    display: flex;
+    align-items: center;
+  }
+  .back .qr-col {
+    width: 190px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 24px;
+    gap: 14px;
+    flex-shrink: 0;
+    border-right: 1px solid #1e1e1e;
+    height: 100%;
+  }
+  .back .qr-label {
+    font-size: 7.5px; letter-spacing: 2.5px; color: #444;
+    text-transform: uppercase;
+  }
+  .back .info-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 48px;
+  }
+  .back .name { font-size: 26px; font-weight: 900; color: #fff; letter-spacing: -1px; line-height: 1.1; }
+  .back.inline .name { font-size: 20px; white-space: nowrap; }
+  .back .role { font-size: 10px; color: #5B9BFF; margin-top: 6px; letter-spacing: 2px; text-transform: uppercase; }
+  .back .divider { width: 28px; height: 1px; background: #222; margin: 20px 0; }
+  .back .contacts { display: flex; flex-direction: column; gap: 9px; }
+  .back .row { display: flex; align-items: center; gap: 10px; }
+  .back .icon { color: #5B9BFF; font-size: 12px; width: 16px; text-align: center; }
+  .back .val { font-size: 11px; color: #777; }
+  .back .glow {
+    position: absolute;
+    bottom: -80px; right: -80px;
+    width: 240px; height: 240px;
+    background: radial-gradient(circle, rgba(91,155,255,0.06) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+</style>
+</head>
+<body>
+
+  <a href="business-card.pdf" download style="
+    display:inline-flex; align-items:center; gap:10px;
+    background:#5B9BFF; color:#fff; text-decoration:none;
+    font-family:Verdana,sans-serif; font-size:12px; font-weight:700;
+    letter-spacing:1px; text-transform:uppercase;
+    padding:14px 28px; border-radius:8px;
+    margin-bottom:8px;
+  ">⬇ Скачать PDF</a>
+
+  <div>
+    <div class="label">Передняя сторона</div>
+    <div class="card front">
+      <div class="front-accent"></div>
+      <div class="front-accent-2"></div>
+      <div class="front-logo">DS<span> CONSULT</span></div>
+      <div class="front-tagline">Strategic Partner for Founders</div>
+      <div class="front-line"></div>
+    </div>
+  </div>
+
+  <div>
+    <div class="label">Оборотная сторона</div>
+    <div class="card back">
+      <div class="glow"></div>
+      <div class="qr-col">
+        <div id="qr"></div>
+        <div class="qr-label">LinkedIn</div>
+      </div>
+      <div class="info-col">
+        <div class="name">Dima<br>Shevchenko</div>
+        <div class="role">CEO &amp; Founder</div>
+        <div class="divider"></div>
+        <div class="contacts">
+          <div class="row"><span class="icon">✆</span><span class="val">+48 537 777 946</span></div>
+          <div class="row"><span class="icon">✉</span><span class="val">ceo@dsconsult.com.pl</span></div>
+          <div class="row"><span class="icon">⊕</span><span class="val">dsconsult.com.pl</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+  new QRCode(document.getElementById("qr"), {
+    text: "https://linkedin.com/in/dmitriy-shevchenko",
+    width: 96, height: 96,
+    colorDark: "#ffffff", colorLight: "#0d0d0d",
+    correctLevel: QRCode.CorrectLevel.H
+  });
+</script>
+  <div>
+    <div class="label">Оборотная — имя в одну строку</div>
+    <div class="card back inline">
+      <div class="glow"></div>
+      <div class="qr-col">
+        <div id="qr2"></div>
+        <div class="qr-label">LinkedIn</div>
+      </div>
+      <div class="info-col">
+        <div class="name">Dima Shevchenko</div>
+        <div class="role">CEO &amp; Founder</div>
+        <div class="divider"></div>
+        <div class="contacts">
+          <div class="row"><span class="icon">✆</span><span class="val">+48 537 777 946</span></div>
+          <div class="row"><span class="icon">✉</span><span class="val">ceo@dsconsult.com.pl</span></div>
+          <div class="row"><span class="icon">⊕</span><span class="val">dsconsult.com.pl</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+  new QRCode(document.getElementById("qr2"), {
+    text: "https://linkedin.com/in/dmitriy-shevchenko",
+    width: 96, height: 96,
+    colorDark: "#ffffff", colorLight: "#0d0d0d",
+    correctLevel: QRCode.CorrectLevel.H
+  });
+</script>
+</body>
+</html>

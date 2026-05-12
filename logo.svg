@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 150" width="520" height="150">
+  <!-- Dark background -->
+  <rect width="520" height="150" fill="#0d0d0d" rx="12"/>
+
+  <!-- Glow accent top-right -->
+  <radialGradient id="glow1" cx="85%" cy="10%" r="35%">
+    <stop offset="0%" stop-color="#5B9BFF" stop-opacity="0.12"/>
+    <stop offset="100%" stop-color="#5B9BFF" stop-opacity="0"/>
+  </radialGradient>
+  <rect width="520" height="150" rx="12" fill="url(#glow1)"/>
+
+  <!-- Glow accent bottom-left -->
+  <radialGradient id="glow2" cx="10%" cy="90%" r="30%">
+    <stop offset="0%" stop-color="#5B9BFF" stop-opacity="0.07"/>
+    <stop offset="100%" stop-color="#5B9BFF" stop-opacity="0"/>
+  </radialGradient>
+  <rect width="520" height="150" rx="12" fill="url(#glow2)"/>
+
+  <!-- DS CONSULT -->
+  <text x="44" y="94" font-family="Verdana,Geneva,sans-serif" font-size="68" font-weight="900" fill="#ffffff" letter-spacing="-2">DS</text>
+  <text x="168" y="94" font-family="Verdana,Geneva,sans-serif" font-size="68" font-weight="900" fill="#5B9BFF" letter-spacing="-2"> CONSULT</text>
+
+  <!-- Tagline -->
+  <text x="46" y="124" font-family="Verdana,Geneva,sans-serif" font-size="11" fill="#555555" letter-spacing="3.5">STRATEGIC PARTNER FOR FOUNDERS</text>
+
+  <!-- Blue accent line -->
+  <rect x="46" y="133" width="36" height="2" fill="#5B9BFF" opacity="0.5" rx="1"/>
+</svg>
