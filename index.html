@@ -51,7 +51,7 @@ nav.scrolled{background:rgba(8,8,8,0.97);border-color:var(--border2)}
   font-size:14px;font-weight:600;color:#fff;
   background:var(--accent);border:none;cursor:pointer;
   padding:12px 26px;border-radius:6px;text-decoration:none;
-  transition:opacity .2s,transform .15s,box-shadow .2s;
+  transition:opacity .2s,box-shadow .2s;
   opacity:0;animation:fadeDown .6s var(--ease) .5s forwards;
 }
 .nav-cta:hover{opacity:.88;box-shadow:0 6px 20px rgba(91,155,255,.3)}
@@ -107,7 +107,7 @@ body.lang-ua .hero-left { padding-top: 60px; }
   display:inline-flex;align-items:center;gap:8px;
   background:var(--accent);color:#fff;font-weight:600;font-size:14px;
   padding:15px 28px;border-radius:8px;text-decoration:none;
-  transition:opacity .2s,transform .15s,box-shadow .2s;
+  transition:opacity .2s,box-shadow .2s;
 }
 .btn-primary:hover{opacity:.88;box-shadow:0 8px 32px rgba(91,155,255,.3)}
 .btn-ghost{
@@ -275,7 +275,7 @@ a.case-card{text-decoration:none;color:inherit}
 .svc-col-items li::before{content:'—';position:absolute;left:0;color:var(--accent);opacity:.4}
 .svc-note{margin-top:36px;padding:18px 24px;border-left:2px solid var(--accent-line);font-size:13px;color:var(--faint);font-style:italic;line-height:1.7}
 .svc-cta{margin-top:36px}
-.svc-cta a{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#fff;font-weight:600;font-size:14px;padding:13px 26px;border-radius:8px;text-decoration:none;transition:opacity .2s,transform .15s,box-shadow .2s}
+.svc-cta a{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#fff;font-weight:600;font-size:14px;padding:13px 26px;border-radius:8px;text-decoration:none;transition:opacity .2s,box-shadow .2s}
 .svc-cta a:hover{opacity:.88;box-shadow:0 8px 28px rgba(91,155,255,.3)}
 .svc-result{
   margin-top:36px;display:inline-flex;align-items:center;gap:12px;
@@ -953,14 +953,6 @@ window.addEventListener('scroll', () => {
   navLinks.forEach(a => { a.style.color = a.getAttribute('href') === '#' + cur ? 'var(--text)' : ''; });
 }, {passive:true});
 
-/* MAGNETIC buttons */
-document.querySelectorAll('.btn-primary').forEach(btn => {
-  btn.addEventListener('mousemove', e => {
-    const r = btn.getBoundingClientRect();
-    btn.style.transform = `translate(${(e.clientX-r.left-r.width/2)*.1}px,${(e.clientY-r.top-r.height/2)*.1}px)`;
-  });
-  btn.addEventListener('mouseleave', () => { btn.style.transform = ''; });
-});
 
 /* LANGUAGE SWITCHER */
 const i18n = {
